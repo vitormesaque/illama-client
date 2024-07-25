@@ -1,4 +1,4 @@
-# Illama Client
+# i-LLAMA Client
 
 This is a Python package to extract issues from user reviews using an API.
 
