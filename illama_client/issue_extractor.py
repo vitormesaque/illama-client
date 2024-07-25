@@ -18,7 +18,7 @@ class IssueExtractor:
 ### Response:
 {}"""
 
-        instruction = ("Extract issues from the user review in JSON format. For each issue, provide label, functionality, severity (1-5), likelihood (1-5), category (Bug, User Experience, Performance, Security, Compatibility, Functionality, UI, Connectivity, Localization, Accessibility, Data Handling, Privacy, Notifications, Account Management, Payment, Content Quality, Support, Updates, Syncing, Customization), and the sentence.")
+        instruction = ("Extract issues from the user review in JSON format. For each issue, provide: label, functionality, severity (1-5), likelihood (1-5), category (Bug, User Experience, Performance, Security, Compatibility, Functionality, UI, Connectivity, Localization, Accessibility, Data Handling, Privacy, Notifications, Account Management, Payment, Content Quality, Support, Updates, Syncing, Customization), and the sentence.")
 
         text = illama_prompt.format(instruction, review, "")
 
