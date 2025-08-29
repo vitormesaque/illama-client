@@ -7,7 +7,7 @@ class IssueExtractor:
         self.model = model
 
     def extract_issues(self, review):
-        illama_prompt = """Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+        illama_prompt = """Below is an instruction that describes a task, paired with an input that provides context.
 
 ### Instruction:
 {}
@@ -17,8 +17,9 @@ class IssueExtractor:
 
 ### Response:
 {}"""
+        instruction_prompt = """Extract issues from the user review in strict JSON format. At the top level, provide: severity (1–5), likelihood (1–5), risk_level (low|medium|high), and category (one of: Bug, User Experience, Performance, Security, Compatibility, Functionality, UI, Connectivity, Localization, Accessibility, Data Handling, Privacy, Notifications, Account Management, Payment, Content Quality, Support, Updates, Syncing, Customization). Also include an array "issues", where each issue has: title, category, severity (1–5), likelihood (1–5), and risk_level (low|medium|high)."""
 
-        instruction = ("Extract issues from the user review in strict JSON format. At the top level, provide: severity (1–5), likelihood (1–5), risk_level (low|medium|high), and category (one of: Bug, User Experience, Performance, Security, Compatibility, Functionality, UI, Connectivity, Localization, Accessibility, Data Handling, Privacy, Notifications, Account Management, Payment, Content Quality, Support, Updates, Syncing, Customization). Also include an array [issues], where each issue has: title, category, severity (1–5), likelihood (1–5), and risk_level (low|medium|high).")
+        instruction = (instruction_prompt)
 
         text = illama_prompt.format(instruction, review, "")
 
