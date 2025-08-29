@@ -1,11 +1,15 @@
 from setuptools import setup, find_packages
 
+with open("README.md", encoding="utf-8") as f:
+    long_description = f.read()
+
 setup(
     name='illama_client',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     install_requires=[
-        'requests',
+        'requests>=2.20',
+        'urllib3>=1.26',
     ],
     entry_points={
         'console_scripts': [
@@ -15,7 +19,7 @@ setup(
     author='Vitor Mesaque Alves de Lima',
     author_email='vitor.lima@ufms.br',
     description='A package to extract issues from user reviews using an API.',
-    long_description=open('README.md').read(),
+    long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/vitormesaque/illama-client',
     classifiers=[
